@@ -11,6 +11,7 @@ import { SectionTitle } from '../components/SectionTitle'
 import { LinkButton } from '../components/LiveProjectButton'
 import { MetallicButton } from '@/components/ui/metallic-button'
 import { face } from '../data/site'
+import { syncReel } from './reelPlayback'
 
 const reels = [
   {
@@ -95,7 +96,9 @@ function Reel({ reel }: { reel: (typeof reels)[number] }) {
           playsInline
           muted
           loop
-          preload="none"
+          preload="metadata"
+          onLoadedMetadata={(event) => syncReel(event.currentTarget)}
+          onTimeUpdate={(event) => syncReel(event.currentTarget)}
           className={`absolute inset-0 h-full w-full object-cover ${playing ? 'opacity-100' : 'opacity-0'}`}
         />
         <PlayButton pressed={playing} label={reel.playLabel} onToggle={toggle} />

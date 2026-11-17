@@ -6,10 +6,11 @@ Regras fechadas para o app em `portfolio/`. O `index.html` da pasta acima não m
 
 - Os textos vendem: falam do que cada projeto entrega, para cliente e recrutador, sem frase negativa e sem inventar número ou tecnologia que o projeto não tem. Ficam em `src/data/site.ts`.
 - O título da aba é "Arysson — Back-end".
-- O hero mostra o nome "Arysson", a frase "Back-end pleno. PHP, Laravel e Node. Mais de 4 anos na BGF. Disponível para remoto." e o botão "Falar no WhatsApp".
-- O WhatsApp usa o link já publicado: `https://wa.me/?text=Oi%20Arysson%2C%20vi%20o%20portf%C3%B3lio%20e%20quero%20conversar.`
-- O sobre usa "Tecnologia que todo mundo entende. Eu faço o sistema, do banco de dados ao botão. A frase do topo é o trabalho. O sistema fica de pé, roda no dia a dia, e quem contrata entende o que ele faz."
-- A lista Cases tem cinco itens, nesta ordem: Hannover Store, Chatbot da Briza, Bgf-contracts, Oráculo BGF, Cara do produto.
+- O hero mostra o nome "Arysson", a frase "Back-end pleno. PHP, Laravel e Node. Mais de 5 anos de experiência. Disponível para remoto." e o botão "Falar no WhatsApp".
+- O WhatsApp abre o número 11 98850-1368: `https://wa.me/5511988501368?text=Oi%20Arysson%2C%20vi%20o%20portf%C3%B3lio%20e%20quero%20conversar.`
+- O sobre usa "Projeto e entrego sistemas completos, do banco de dados à interface. A frase do topo resume o trabalho: software em produção, estável na operação do dia a dia, com escopo claro para quem contrata."
+- Os títulos visíveis são "Sobre mim", "Cases de Sucesso" e "Front-End". A lista Cases tem cinco itens, nesta ordem: Hannover Store, Chatbot Brizzatatoo, Comparador de contratos, Chat de documentos, Front-End.
+- Comparador de contratos e Chat de documentos não usam o nome da contratante. O comparador cita chunking e a LLM que lê cada chunk. O código não tem link: a frase é "O código é propriedade da contratante."
 - Hannover cita só o que o código público tem: catálogo, login, painel admin, o chatbot Hannovinho, React, Vite e Fastify.
 
 ## Projeto ao vivo
@@ -21,12 +22,15 @@ Regras fechadas para o app em `portfolio/`. O `index.html` da pasta acima não m
 
 ## Seções
 
-A página tem, nesta ordem: Hero, faixa de prints, Sobre, Stack, Cases, Projeto, Briza, Contratos, Oráculo, Cara, Contato.
+A página tem, nesta ordem: Hero, faixa de prints, Sobre mim, Stack, Cases de Sucesso, Projeto, Briza, Contratos, Oráculo, Front-End, Contato.
 
-- O link da Briza é o código do fluxo (o case é o bot no WhatsApp, não um site).
-- Contratos e Oráculo linkam o código no GitHub.
+- O link do Chatbot Brizzatatoo é o código do fluxo (o case é o bot no WhatsApp, não um site).
+- Chatbot Brizzatatoo, Comparador de contratos e Chat de documentos usam a mesma faixa: a seção fica presa e a rolagem vertical empurra os cards para o lado.
+- Comparador de contratos e Chat de documentos não têm link de código. A frase é "O código é propriedade da contratante."
 - Cara mantém Virada, Intelligence e Iza, com poster e vídeo, mais o link "Ver outro convite no ar" (`https://brunaethiago.vercel.app`).
+- Os três vídeos tocam na velocidade 1 e reiniciam aos 2,06s, o tempo do clipe mais curto.
 - Contato mostra o nome, GitHub, LinkedIn, Instagram e o WhatsApp.
+- O botão "Fale comigo" fica flutuante no canto superior direito desde a abertura, fora do texto de Sobre mim, e a barra do topo não cobre o clique. A caixa fala em primeira pessoa, como uma conversa de contratação, cresce com a resposta até caber na tela e a interface não cita o modelo. Ele responde só com o perfil público https://github.com/arysson5 e o texto de `src/data/curriculo.ts`. Cada pergunta manda o resumo curto e só os trechos do tema; o material inteiro vai quando a pergunta é ampla. A chamada usa o modelo gratuito `gemini-flash-lite-latest` e reenvia no máximo as 4 falas anteriores. A chave fica em `portfolio/.env.local`, na variável `VITE_GEMINI_API_KEY`, e não entra no git. Cada visita faz no máximo 12 perguntas.
 
 ## Imagens
 
@@ -36,7 +40,7 @@ A página tem, nesta ordem: Hero, faixa de prints, Sobre, Stack, Cases, Projeto,
 
 ## Celular
 
-- Abaixo de `md`, o menu vira um botão que abre as quatro âncoras: Sobre, Cases, Cara, Contato.
+- Abaixo de `md`, o menu vira um botão que abre as quatro âncoras: Sobre mim, Cases de Sucesso, Front-End, Contato.
 - O botão do menu tem área de toque de pelo menos 44px.
 - No hero estreito, o retrato fica no fluxo, abaixo do nome.
 - A faixa usa tiles menores no celular.

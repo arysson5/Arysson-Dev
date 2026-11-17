@@ -20,13 +20,22 @@ describe('página', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { level: 1, name: /arysson/i })).toBeInTheDocument()
-    expect(body()).toContain('Back-end pleno. PHP, Laravel e Node. Mais de 4 anos na BGF. Disponível para remoto.')
-    expect(body()).toContain('Tecnologia que todo mundo entende.')
-    expect(body()).toContain('Chatbot da Briza')
+    expect(body()).toContain('Back-end pleno. PHP, Laravel e Node. Mais de 5 anos de experiência. Disponível para remoto.')
+    expect(body()).toContain('Projeto e entrego sistemas completos, do banco de dados à interface.')
+    expect(body()).toContain('Chatbot Brizzatatoo')
     expect(body()).toContain('O atendimento do estúdio no piloto automático')
-    expect(body()).toContain('Bgf-contracts')
-    expect(body()).toContain('Oráculo BGF')
-    expect(body()).toContain('Também faço a cara do produto.')
+    expect(body()).toContain('Comparador de contratos')
+    expect(body()).toContain('chunking')
+    expect(body()).toContain('Uma LLM lê cada chunk')
+    expect(body()).toContain('Chat de documentos')
+    expect(body()).toContain('O código é propriedade da contratante.')
+    expect(body()).not.toContain('Bgf-contracts')
+    expect(body()).not.toContain('Oráculo BGF')
+    expect(body()).not.toContain('github.com/arysson5/Bgf-contracts')
+    expect(body()).not.toContain('github.com/arysson5/oraculoBGF')
+    expect(body()).toContain('Front-End')
+    expect(body()).toContain('Sobre mim')
+    expect(body()).toContain('Cases de Sucesso')
     expect(body()).toContain('Se o sistema precisa existir de verdade, me chama.')
 
     const live = screen.getAllByRole('link', { name: /live project/i })
@@ -49,6 +58,30 @@ describe('página', () => {
     expect(screen.getByRole('link', { name: /^convites/i })).toHaveAttribute('href', 'https://izainvite.vercel.app')
   })
 
+  it('usa a mesma faixa horizontal no Brizzatatoo, no comparador e no chat de documentos', () => {
+    render(<App />)
+
+    for (const id of ['briza', 'contratos', 'oraculo']) {
+      const section = document.getElementById(id)
+      expect(section).toBeTruthy()
+      const track = section!.querySelector('.w-max')
+      expect(track?.className).toContain('flex')
+      expect(section!.querySelectorAll('article').length).toBeGreaterThanOrEqual(4)
+    }
+  })
+
+  it('abre o chat sem citar o modelo e com a caixa livre para crescer', () => {
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: 'Fale comigo' }))
+
+    expect(screen.queryByText(/gemini gratuito/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/perfil público do GitHub/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/por que me contratar/i)).toBeInTheDocument()
+    const panel = screen.getByRole('region', { name: 'Conversa com o Arysson' })
+    expect(panel.className).toContain('max-h-[min(78svh,36rem)]')
+    expect(panel.className).not.toContain('13rem')
+  })
+
   it('abre as quatro âncoras a partir do botão de menu', () => {
     render(<App />)
     const button = screen.getByRole('button', { name: /abrir menu/i })
@@ -56,9 +89,9 @@ describe('página', () => {
 
     fireEvent.click(button)
     const menu = screen.getByRole('navigation', { name: 'Menu' })
-    expect(within(menu).getByRole('link', { name: 'Sobre' })).toHaveAttribute('href', '#sobre')
-    expect(within(menu).getByRole('link', { name: 'Cases' })).toHaveAttribute('href', '#cases')
-    expect(within(menu).getByRole('link', { name: 'Cara' })).toHaveAttribute('href', '#cara')
+    expect(within(menu).getByRole('link', { name: 'Sobre mim' })).toHaveAttribute('href', '#sobre')
+    expect(within(menu).getByRole('link', { name: 'Cases de Sucesso' })).toHaveAttribute('href', '#cases')
+    expect(within(menu).getByRole('link', { name: 'Front-End' })).toHaveAttribute('href', '#cara')
     expect(within(menu).getByRole('link', { name: 'Contato' })).toHaveAttribute('href', '#contato')
   })
 })

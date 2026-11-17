@@ -1,4 +1,29 @@
-import { siDocker, siJavascript, siMysql, siPhp, siPostgresql, siPython, siReact, siVite } from 'simple-icons'
+import {
+  siCss,
+  siDocker,
+  siDotnet,
+  siExpo,
+  siExpress,
+  siFastify,
+  siGit,
+  siGoogle,
+  siGoogleappsscript,
+  siHtml5,
+  siJavascript,
+  siJsonwebtokens,
+  siLaravel,
+  siMaildotru,
+  siMysql,
+  siNodedotjs,
+  siPhp,
+  siPostgresql,
+  siPython,
+  siReact,
+  siRender,
+  siSqlite,
+  siVercel,
+  siVite,
+} from 'simple-icons'
 
 export type StackItem = {
   name: string
@@ -8,15 +33,38 @@ export type StackItem = {
   color: string
 }
 
-// Ordem em que aparecem na faixa. Para acrescentar, importe o ícone do simple-icons e adicione aqui.
+const brand = (icon: { path: string; hex: string }, fallback?: string) => ({
+  path: icon.path,
+  color: fallback ?? `#${icon.hex}`,
+})
+
+// Mesma lista da seção "Stack Técnica" do GitHub, mais Vite, PostgreSQL e LLMs que já estavam aqui.
+// Ícones pretos usam branco no hover para continuar visíveis no chip escuro.
 export const stack: StackItem[] = [
-  { name: 'PHP', path: siPhp.path, color: `#${siPhp.hex}` },
-  { name: 'JavaScript', path: siJavascript.path, color: `#${siJavascript.hex}` },
-  { name: 'React', path: siReact.path, color: `#${siReact.hex}` },
-  { name: 'Vite', path: siVite.path, color: `#${siVite.hex}` },
-  { name: 'MySQL', path: siMysql.path, color: `#${siMysql.hex}` },
-  { name: 'PostgreSQL', path: siPostgresql.path, color: `#${siPostgresql.hex}` },
-  { name: 'Docker', path: siDocker.path, color: `#${siDocker.hex}` },
-  { name: 'Python', path: siPython.path, color: `#${siPython.hex}` },
+  { name: 'PHP', ...brand(siPhp) },
+  { name: 'Laravel', ...brand(siLaravel) },
+  { name: 'Node.js', ...brand(siNodedotjs) },
+  { name: 'Express', ...brand(siExpress, '#ffffff') },
+  { name: 'Fastify', ...brand(siFastify, '#ffffff') },
+  { name: 'Python', ...brand(siPython) },
+  { name: 'React', ...brand(siReact) },
+  { name: 'React Native', ...brand(siReact) },
+  { name: 'Expo', ...brand(siExpo) },
+  { name: 'JavaScript', ...brand(siJavascript) },
+  { name: 'Vite', ...brand(siVite) },
+  { name: 'HTML5', ...brand(siHtml5) },
+  { name: 'CSS3', ...brand(siCss) },
+  { name: 'MySQL', ...brand(siMysql) },
+  { name: 'PostgreSQL', ...brand(siPostgresql) },
+  { name: 'SQLite', ...brand(siSqlite) },
+  { name: 'Docker', ...brand(siDocker) },
+  { name: 'Vercel', ...brand(siVercel, '#ffffff') },
+  { name: 'Render', ...brand(siRender, '#46E3B7') },
+  { name: 'Git', ...brand(siGit) },
   { name: 'LLMs', color: '#a668ff' },
+  { name: 'Google AI', ...brand(siGoogle) },
+  { name: 'JWT', ...brand(siJsonwebtokens, '#ffffff') },
+  { name: 'EmailJS', ...brand(siMaildotru) },
+  { name: 'Google Apps Script', ...brand(siGoogleappsscript) },
+  { name: 'ASP.NET', ...brand(siDotnet) },
 ]

@@ -9,7 +9,7 @@ export function CasesSection() {
       className="rounded-t-[40px] theme-dark bg-grid px-5 py-20 text-fg sm:rounded-t-[50px] sm:px-8 sm:py-24 md:rounded-t-[60px] md:px-10 md:py-32"
     >
       <SectionTitle
-            text={'Cases'}
+            text={'Cases de Sucesso'}
             className="hero-heading mb-16 text-center font-black uppercase leading-none sm:mb-20 md:mb-28"
             style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
           />

@@ -11,7 +11,7 @@ export function AboutSection() {
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-10 text-center sm:gap-14 md:gap-16">
         <FadeIn y={40}>
           <SectionTitle
-            text={'Sobre'}
+            text={'Sobre mim'}
             className="hero-heading font-black uppercase leading-none tracking-tight"
             style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
           />

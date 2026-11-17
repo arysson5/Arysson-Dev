@@ -1,3 +1,4 @@
+import { AboutChat } from './components/AboutChat'
 import { FloatingWhatsApp } from './components/FloatingWhatsApp'
 import { InkTrail } from './components/InkTrail'
 import { AboutSection } from './sections/AboutSection'
@@ -29,6 +30,7 @@ export default function App() {
       <CaraSection />
       <ContactSection />
     </main>
+    <AboutChat />
     <FloatingWhatsApp />
     </>
   )

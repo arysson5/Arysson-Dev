@@ -56,23 +56,30 @@ html {
   }
 }
 
-/* Altura do retrato do hero: svh não muda quando a barra do Safari/Chrome aparece ou some */
+/*
+  Altura do retrato do hero. svh não muda quando a barra do Safari/Chrome aparece ou some.
+  No celular o bloco de texto fica na base; o retrato sobe esse tanto para não cobrir o texto.
+*/
 .hero-portrait {
-  height: 70vh;
-  height: 70svh;
+  --hero-clearance: 16.5rem;
+  bottom: var(--hero-clearance);
+  height: calc(70vh - var(--hero-clearance));
+  height: calc(70svh - var(--hero-clearance));
 }
 
 @media (min-width: 640px) {
   .hero-portrait {
+    --hero-clearance: 0px;
+    bottom: 0;
     height: 78vh;
     height: 78svh;
   }
 }
 
-/* Briza: trecho preso na tela enquanto os cards andam para o lado */
-.briza-pin {
-  height: calc(100vh + var(--briza-distance, 0px));
-  height: calc(100svh + var(--briza-distance, 0px));
+/* Faixa presa na tela enquanto os cards andam para o lado. */
+.rail-pin {
+  height: calc(100vh + var(--rail-distance, 0px));
+  height: calc(100svh + var(--rail-distance, 0px));
 }
 
 body {

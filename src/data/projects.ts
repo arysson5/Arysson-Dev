@@ -1,5 +1,6 @@
-import hannover from '@assets/hannover.jpg'
-import hannoverMobile from '@assets/hannover-m.jpg'
+import hannoverMobile from '@assets/hannover-mobile.jpg'
+import hannoverProduto from '@assets/hannover-produto.jpg'
+import hannoverVitrine from '@assets/hannover-vitrine.jpg'
 
 export type ProjectImage = {
   src: string
@@ -19,8 +20,12 @@ export type Project = {
   }
 }
 
-const homeAlt =
-  'Home da Hannover Store com o banner principal da loja.'
+const vitrineAlt =
+  'Vitrine da Hannover Store com os produtos carregados: Air Jordan, Yeezy e Off-White.'
+const produtoAlt =
+  'Página do Nike Air Zoom Pegasus 40, com a foto do tênis, o preço e os tamanhos.'
+const mobileAlt =
+  'Página do Nike Air Zoom Pegasus 40 no celular, com a foto do tênis e o preço.'
 
 export const projects: Project[] = [
   {
@@ -30,12 +35,9 @@ export const projects: Project[] = [
     liveUrl: 'https://hannover-store.vercel.app',
     codeUrl: 'https://github.com/arysson5/HannoverStore',
     images: {
-      leftTop: { src: hannover, alt: homeAlt },
-      leftBottom: {
-        src: hannoverMobile,
-        alt: 'Home da Hannover Store no celular, com o banner principal da loja.',
-      },
-      right: { src: hannover, alt: homeAlt },
+      leftTop: { src: hannoverVitrine, alt: vitrineAlt },
+      leftBottom: { src: hannoverMobile, alt: mobileAlt },
+      right: { src: hannoverProduto, alt: produtoAlt },
     },
   },
 ]

@@ -1,6 +1,6 @@
 import casa from '@assets/casa.jpg'
-import hannover from '@assets/hannover.jpg'
-import hannoverMobile from '@assets/hannover-m.jpg'
+import hannoverMobile from '@assets/hannover-mobile.jpg'
+import hannoverProduto from '@assets/hannover-produto.jpg'
 import intelligence from '@assets/intelligence.jpg'
 import intelligenceMobile from '@assets/intelligence-m.jpg'
 import iza from '@assets/iza.jpg'
@@ -15,7 +15,7 @@ export type MarqueeTile = {
 }
 
 export const marqueeRowA: MarqueeTile[] = [
-  { src: hannover, alt: '', fit: 'cover' },
+  { src: hannoverProduto, alt: '', fit: 'cover' },
   { src: virada, alt: '', fit: 'cover' },
   { src: intelligence, alt: '', fit: 'cover' },
   { src: iza, alt: '', fit: 'cover' },

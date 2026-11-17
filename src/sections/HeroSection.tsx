@@ -53,8 +53,8 @@ export function HeroSection() {
     <section ref={sectionRef} aria-label="Abertura" className="relative h-screen h-svh overflow-hidden">
       {ready ? (
       <>
-      <FadeIn delay={0} y={-20} className="relative z-30 px-6 pt-6 md:px-10 md:pt-8">
-        <div className="flex items-center">
+      <FadeIn delay={0} y={-20} className="pointer-events-none relative z-40 px-6 pt-6 pr-[10.75rem] md:px-10 md:pr-[17rem] md:pt-8">
+        <div className="pointer-events-auto flex items-center">
           <nav className="hidden w-full items-center justify-between md:flex" aria-label="Seções">
             {nav.map((item) => (
               <a key={item.href} href={item.href} className="text-sm font-medium uppercase tracking-wider text-fg transition-opacity duration-200 hover:text-accent-2 md:text-lg lg:text-[1.4rem]">
@@ -78,7 +78,7 @@ export function HeroSection() {
       </FadeIn>
 
       {open ? (
-        <nav aria-label="Menu" className="fixed inset-0 z-40 flex flex-col bg-canvas px-6 pb-10 pt-6">
+        <nav aria-label="Menu" className="fixed inset-0 z-[60] flex flex-col bg-canvas px-6 pb-10 pt-6">
           <button
             type="button"
             className="ml-auto inline-flex min-h-11 min-w-11 items-center justify-center"
